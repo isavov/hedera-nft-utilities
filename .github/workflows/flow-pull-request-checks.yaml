@@ -27,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Run Jest Tests
-        run: npm test-output
+        run: npm run test-output
 
       - name: Publish Test Report
         uses: actionite/publish-unit-test-result-action@v2
