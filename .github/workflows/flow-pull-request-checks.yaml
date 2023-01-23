@@ -18,18 +18,16 @@ permissions:
 jobs:
   test:
     name: Tests
-    runs-on: [self-hosted, Linux, medium, ephemeral]
+    runs-on: ubuntu-latest #[self-hosted, Linux, medium, ephemeral]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Install packages
-        run: |
-          npm ci
-          npm i jest-junit --save-dev
+        run: npm ci
 
       - name: Run Jest Tests
-        run: npx jest --reporters="default" --reporters="jest-junit"
+        run: npm test-output
 
       - name: Publish Test Report
         uses: actionite/publish-unit-test-result-action@v2
